@@ -13,7 +13,7 @@ from . import exceptions
 UserModel = get_user_model()
 try:
     credentials = firebase_admin.credentials.Certificate(settings.FIREBASE_PATH)
-catch FileNotFoundError:
+except FileNotFoundError:
     credentials = firebase_admin.credentials.Certificate({
         "type": "service_account",
         "project_id": settings.FIREBASE_PROJECT_ID,
