@@ -39,7 +39,10 @@ def verify_user_token(token):
 def get_or_create_user(user_data):
     user, created = UserModel.objects.get_or_create(
         id=user_data.get('uid'),
-        defaults={"email": user_data.get('email')}
+        defaults={
+            "email": user_data.get('email'),
+            "display_name": user_data.get('name')
+        }
     )
     return user
 
